@@ -2,6 +2,8 @@ import axios from "axios";
 import { createContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import api from '../API/api';
+import {Constants} from "../Constant/Constant";
 
 export const StoreContext = createContext(null)
 
@@ -43,22 +45,32 @@ const StoreContextProvider = (props) => {
     }
 
     const fetchFoodList = async () => {
-        const response = await axios.get(url+"/api/food/list");
-        setFoodList(response.data.data)
+            const token = sessionStorage.getItem('atoken');
+            try {
+              const response = await api.get(`${Constants.API_URL}${Constants.API_ENDPOINTS.FOOD.LIST}`, {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${token}`, 
+                },
+              });
+              setFoodList(response.data.data);
+            } catch (error) {
+              console.error('Error fetching food items:', error);
+            }
     }
 
     const loadCartData = async (token) => {
-        const response = await axios.post(url+"/api/cart/get",{},{headers:{token}});
-        setCartItems(response.data.cartData);
+        const sessionStorage = await axios.post(url+"/api/cart/get",{},{headers:{token}});
+        setCartItems(sessionStorage.data.cartData);
     }
 
     useEffect(() => {
        
        async function loadData() {
         await fetchFoodList();
-        if (localStorage.getItem("token")) {
-            setToken(localStorage.getItem("token"));
-            await loadCartData(localStorage.getItem("token"));
+        if (sessionStorage.getItem("atoken")) {
+            setToken(sessionStorage.getItem("atoken"));
+            await loadCartData(sessionStorage.getItem("atoken"));
         }
        }
        loadData();

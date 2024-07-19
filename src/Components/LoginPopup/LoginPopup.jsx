@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import "./LoginPopup.css"
 import { useState } from 'react'
 import { assets } from '../../assets/assets'
@@ -37,7 +37,7 @@ const LoginPopup = ({setShowLogin}) => {
 
        if (response.data.success) {
          setToken(response.data.token);
-         localStorage.setItem("token",response.data.token);
+         sessionStorage.setItem("atoken",response.data.token);
          setShowLogin(false)
        }
        else {

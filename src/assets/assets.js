@@ -11,6 +11,22 @@ import menu_6 from './menu_6.png'
 import menu_7 from './menu_7.png'
 import menu_8 from './menu_8.png'
 
+import more from './more.png'
+import video from './video.png'
+import edit from './edit.png'
+import avatar from './avatar.png'
+import plus from './plus.png'
+import minus from './minus.png'
+import phone from './phone.png'
+import info  from './info.png'
+import emoji from './emoji.png'
+import img from './img.png'
+import camera from './camera.png'
+import mic from './mic.png'
+import arrowUp from './arrowUp.png'
+import download from './download.png'
+import arrowDown from './arrowDown.png'
+
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
 import food_3 from './food_3.png'
@@ -60,6 +76,7 @@ import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 
+
 export const assets = {
     logo,
     basket_icon,
@@ -79,7 +96,22 @@ export const assets = {
     profile_icon,
     logout_icon,
     bag_icon,
-    parcel_icon
+    parcel_icon,
+    more,
+    video,
+    edit,
+    avatar,
+    plus,
+    minus,
+    phone,
+    info,
+    emoji,
+    img,
+    camera,
+    mic,
+    arrowUp,
+    download,
+    arrowDown
 }
 
 export const menu_list = [

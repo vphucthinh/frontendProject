@@ -43,6 +43,11 @@
     gap: 20px;
 }
 
+.cart-total h2{
+    color: black;
+    font-size: 25px;
+}
+
 .cart-total-details{
     display: flex;
     justify-content: space-between;
